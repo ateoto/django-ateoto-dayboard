@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 import requests
 from requests_oauth2 import OAuth2
 
-def authorize(request):
+def auth(request):
 
     client_id = settings.GOOGLE_OAUTH2_CLIENT_ID
     client_secret = settings.GOOGLE_OAUTH2_CLIENT_SECRET
