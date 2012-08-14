@@ -43,8 +43,8 @@ def callback(request):
     if request.method == 'GET':
         code = request.GET.get('code', None)
         if code:
-            #response = oauth2_handler.get_token(code)
-            return HttpResponse(code)
+            response = oauth2_handler.get_token(code)
+            return HttpResponse(response)
         else:
             return HttpResponse('Code not found')
     else:
