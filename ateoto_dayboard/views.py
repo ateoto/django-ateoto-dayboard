@@ -51,7 +51,7 @@ def callback(request):
                         'grant_type' : 'authorization_code'}
             #response = oauth2_handler.get_token(code)
             response = requests.post(url, data=payload)
-            return HttpResponse(response)
+            return HttpResponse(response.status_code)
         else:
             return HttpResponse('Code not found')
     else:
