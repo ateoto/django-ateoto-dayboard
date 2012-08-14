@@ -4,7 +4,6 @@ from django.core.urlresolvers import reverse
 
 import requests
 from requests_oauth2 import OAuth2
-from urllib import quote_plus
 
 def auth(request):
 
@@ -16,7 +15,10 @@ def auth(request):
     authorize = "/o/oauth2/auth"
     token = "/o/oauth2/token"
 
-    scope = quote_plus("https://www.googleapis.com/auth/calendar+https://www.googleapis.com/auth/plus.me+https://www.googleapis.com/auth/tasks+https://www.googleapis.com/auth/userinfo.profile")
+    scope = ["https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/plus.me",
+            "https://www.googleapis.com/auth/tasks",
+            "https://www.googleapis.com/auth/userinfo.profile"]
 
     redirect_uri =  request.build_absolute_uri(reverse('dayboard-callback'))
 
