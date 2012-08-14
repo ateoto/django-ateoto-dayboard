@@ -29,7 +29,7 @@ def callback(request):
     client_id = settings.GOOGLE_OAUTH2_CLIENT_ID
     client_secret = settings.GOOGLE_OAUTH2_CLIENT_SECRET
 
-    site = "http://accounts.google.com"
+    site = "https://accounts.google.com"
 
     authorize = "/o/oauth2/auth"
     token = "/o/oauth2/token"
@@ -43,7 +43,7 @@ def callback(request):
     if request.method == 'GET':
         code = request.GET.get('code', None)
         if code:
-            url = 'http://requestb.in/n01vl0n0'
+            url = '%s%s' % (site, token)
             payload = { 'code' : code,
                         'client_id' : client_id,
                         'client_secret' : 'fake',
