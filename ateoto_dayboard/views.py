@@ -10,7 +10,7 @@ def auth(request):
     client_id = settings.GOOGLE_OAUTH2_CLIENT_ID
     client_secret = settings.GOOGLE_OAUTH2_CLIENT_SECRET
 
-    site = "http://accounts.google.com"
+    site = "https://accounts.google.com"
 
     authorize = "/o/oauth2/auth"
     token = "/o/oauth2/token"
@@ -46,7 +46,7 @@ def callback(request):
             url = '%s%s' % (site, token)
             payload = { 'code' : code,
                         'client_id' : client_id,
-                        'client_secret' : 'fake',
+                        'client_secret' : client_secret,
                         'redirect_uri' : redirect_uri,
                         'grant_type' : 'authorization_code'}
             #response = oauth2_handler.get_token(code)
