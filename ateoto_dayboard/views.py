@@ -43,10 +43,10 @@ def callback(request):
     if request.method == 'GET':
         code = request.GET.get('code', None)
         if code:
-            url = '%s%s' % (site, token)
+            url = 'http://requestb.in/n01vl0n0'
             payload = { 'code' : code,
                         'client_id' : client_id,
-                        'client_secret' : client_secret,
+                        'client_secret' : 'fake',
                         'redirect_uri' : redirect_uri,
                         'grant_type' : 'authorization_code'}
             #response = oauth2_handler.get_token(code)
